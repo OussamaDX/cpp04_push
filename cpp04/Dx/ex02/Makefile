@@ -1,0 +1,20 @@
+SRC = $(wildcard *.cpp)
+
+OBJ = $(SRC:.cpp=.o)
+
+NAME = Animal
+
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+
+all : $(NAME)
+
+$(NAME) : $(OBJ)
+	c++ $(OBJ) -o $(NAME) $(CPPFLAGS)
+
+clean : 
+	rm $(OBJ)
+
+fclean :
+	rm -rf $(OBJ) $(NAME)
+
+re : fclean $(NAME)
